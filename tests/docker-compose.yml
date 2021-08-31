@@ -1,6 +1,12 @@
 services:
     tox:
         build:
+            args:
+                http_proxy: ${http_proxy}
+                https_proxy: ${https_proxy}
+                # Also in upper case however the lower ones are the standard ones.
+                HTTP_PROXY: ${http_proxy}
+                HTTPS_PROXY: ${https_proxy}
             context: ../
             dockerfile: tests/Dockerfile-test
         command: tox
